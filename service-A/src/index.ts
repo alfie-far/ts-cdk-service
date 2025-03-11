@@ -1,3 +1,3 @@
-export function someFunction(input) {
-  return `MAGIC ${input}!`;
+export function helperFunction(input: String) {
+  return `V2 - CJS - MAGIC ${input}!`;
 }

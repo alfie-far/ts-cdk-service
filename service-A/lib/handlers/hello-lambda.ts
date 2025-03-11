@@ -1,8 +1,8 @@
-import { someFunction } from "../../src";
+import { helperFunction } from "../../src/index";
 
-export async function handler(event: any) {
+exports.handler = async function (event: any) {
   console.log("event is ", event);
-  const someOutcome = someFunction(event.name);
+  const someOutcome = helperFunction(event.name);
   return {
     statusCode: 200,
     body: JSON.stringify({
@@ -12,4 +12,4 @@ export async function handler(event: any) {
       statusText: "OK",
     }),
   };
-}
+};
