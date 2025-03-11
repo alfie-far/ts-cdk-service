@@ -1,5 +1,5 @@
-import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
+import * as cdk from "aws-cdk-lib";
+import { Construct } from "constructs";
 import { Runtime } from "aws-cdk-lib/aws-lambda";
 import * as lambda from "aws-cdk-lib/aws-lambda-nodejs";
 import { NodejsFunction, OutputFormat } from "aws-cdk-lib/aws-lambda-nodejs";
@@ -10,9 +10,9 @@ import * as path from "path";
 export class ServiceAStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
-    
+
     // Define the Lambda function resource
-    
+
     const myFunction = new NodejsFunction(this, "helloworld-lambda", {
       runtime: Runtime.NODEJS_20_X,
       entry: path.join(__dirname, "../lib/handlers/hello-lambda.ts"), // Ensure correct path
@@ -20,7 +20,7 @@ export class ServiceAStack extends cdk.Stack {
         format: OutputFormat.ESM,
       },
     });
-    
+
     // const myFunction = new lambda.NodejsFunction(this, "APIGatewayHelloWorldGET", {
     //   runtime: lambda.Runtime.NODEJS_20_X, // Provide any supported Node.js runtime
     //   handler: "index.handler",
