@@ -1,6 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { Runtime } from "aws-cdk-lib/aws-lambda";
+import * as lambda from "aws-cdk-lib/aws-lambda-nodejs";
 import { NodejsFunction, OutputFormat } from "aws-cdk-lib/aws-lambda-nodejs";
 import * as path from "path";
 
@@ -13,17 +14,12 @@ export class ServiceAStack extends cdk.Stack {
     // Define the Lambda function resource
     
     const myFunction = new NodejsFunction(this, "helloworld-lambda", {
-      // we want to use the LTS version of NodeJS
-      // to get best performance and features
-      runtime: Runtime.NODEJS_20_X,
-      // your lambda function path
-      entry: path.join(__dirname, "../lib/handlers/hello-lambda.ts"),
-      // additional config for esbuild
+      runtime: lambda.Runtime.NODEJS_20_X,
+      entry: path.join(__dirname, "../lib/handlers/hello-lambda.ts"), // Ensure correct path
       bundling: {
-        // we want to use ESM instead of CJS
         format: OutputFormat.ESM,
       },
-    });
+    })
     
     // const myFunction = new lambda.NodejsFunction(this, "APIGatewayHelloWorldGET", {
     //   runtime: lambda.Runtime.NODEJS_20_X, // Provide any supported Node.js runtime
