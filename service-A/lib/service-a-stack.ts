@@ -19,6 +19,8 @@ export class ServiceAStack extends cdk.Stack {
       // ✅ Use an absolute path to avoid issues in different environments
       entry: path.resolve(__dirname, "../lib/handlers/hello-lambda.ts"),
 
+      functionName: "helloworld-lambda-dev",
+
       // ✅ Optimize bundling for performance and AWS Lambda best practices
       bundling: {
         format: OutputFormat.CJS, // CommonJS for better AWS Lambda compatibility
