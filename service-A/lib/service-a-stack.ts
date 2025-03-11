@@ -14,12 +14,12 @@ export class ServiceAStack extends cdk.Stack {
     // Define the Lambda function resource
     
     const myFunction = new NodejsFunction(this, "helloworld-lambda", {
-      runtime: lambda.Runtime.NODEJS_20_X,
+      runtime: Runtime.NODEJS_20_X,
       entry: path.join(__dirname, "../lib/handlers/hello-lambda.ts"), // Ensure correct path
       bundling: {
         format: OutputFormat.ESM,
       },
-    })
+    });
     
     // const myFunction = new lambda.NodejsFunction(this, "APIGatewayHelloWorldGET", {
     //   runtime: lambda.Runtime.NODEJS_20_X, // Provide any supported Node.js runtime
